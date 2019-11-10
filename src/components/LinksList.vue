@@ -72,7 +72,8 @@ export default {
   perspective: 60rem
   display: block
   color: #fff
-  border: 1px solid #808080
+  // border: 1px solid #808080
+  background-color: rgba($bg_dark, 0.5)
   .card
     width: 100%
     height: 100%
@@ -86,10 +87,9 @@ export default {
       width: 100%
       position: absolute
       backface-visibility: hidden
+      background-color: $bg_dark
       &--front
-        background-color: $bg_dark
       &--back
-        background-color: $bg_dark
         transform: rotateY(180deg)
     &__text
       position: absolute

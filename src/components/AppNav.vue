@@ -1,12 +1,13 @@
 <template>
   <div class="nav">
-    <div class="header" ref="header" :class="{ scrollDown: isScrollDown, viewHome: viewHome }"></div>
+    <div class="header" ref="header" :class="{ scrollDown: isScrollDown }"></div>
 
-    <div class="nav nav--top" :class="{ sticky: isScrollDown }" ref="nav" @click="resizeHeaderHeight">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/links">Links</router-link> |
-    </div>
+    <ul class="nav--top" :class="{ sticky: isScrollDown }" ref="nav">
+      <li class="nav--top__item" @click="jumpToHash('app')">Home</li> |
+      <li class="nav--top__item" @click="jumpToHash('intro')">About</li> |
+      <li class="nav--top__item" @click="jumpToHash('skills')">Skills</li> |
+      <li class="nav--top__item" @click="jumpToHash('links')">Links</li> |
+    </ul>
   </div>
 </template>
 
@@ -28,14 +29,8 @@ export default {
       let nav = this.$refs.nav
       nav.style.backgroundPosition = `0 ${45+(window.scrollY/50)}%`
     },
-    resizeHeaderHeight () {
-      let currentRoute = this.$router.currentRoute
-      console.log(currentRoute)
-      if (currentRoute.name === 'home') {
-        this.viewHome = true
-      } else {
-        this.viewHome = false
-      }
+    jumpToHash (hash) {
+      this.$emit('jumpToHash', hash)
     }
   },
   mounted () {
@@ -49,31 +44,35 @@ export default {
 <style lang="sass">
 .header
   width: 100%
-  height: 300px
+  height: 75vh
   background-image: url(../assets/photo_night.jpg)
   background-position: center
-  background-size: 100%
-  transition: height ease 0.3s
+  background-size: 100% auto
   &.scrollDown
-    height: 150px
-    margin: 200px
-  &.viewHome
-    height: 75vh
+    margin-bottom: 100px
 
 .nav
   width: 100%
   &--top
+    width: 100%
     height: 40px
     padding: 20px
+    display: flex
+    justify-content: center
     z-index: 9
-    transition: ease 0.3s
+    transition: height ease 0.3s
     &.sticky
       height: 150px
-      padding: 30px
+      justify-content: flex-start
       position: fixed
       top: 0
       left: 0
       background-image: url(../assets/photo_night.jpg)
       background-position: 0 50%
       background-size: 100% auto // 定了X軸，position 就只能動Y軸
+    &__item
+      padding: 0 1rem
+      cursor: pointer
+      &:hover
+        transform: translateY(1.5px)
 </style>
