@@ -13,7 +13,7 @@
             </div>
             <div class="card__text card__text--back">
               <h3>{{ link.name }}</h3>
-              <img class="list__item__img" :src="link.src" :alt="link.alt" />
+              <p>{{ link.description }}</p>
             </div>
           </div>
         </a>
@@ -24,6 +24,7 @@
 
 <script>
 import imgPM25 from '../assets/pm25.png'
+import imgHexo from '../assets/hexo.png'
 
 export default {
   name: 'links',
@@ -35,22 +36,24 @@ export default {
           name: 'pm25',
           href: 'https://td231565.github.io/page/pm25/pm25.html',
           alt: 'PM2.5 空氣品質觀測',
-          src: imgPM25
-        }
-      ],
-      ajaxdata: null
+          src: imgPM25,
+          description: 'JS + SCSS'
+        },
+        {
+          id: 2,
+          name: 'hexo',
+          href: 'https://td231565.github.io/tech',
+          alt: 'Hexo 框架打造簡易部落格',
+          src: imgHexo,
+          description: 'hexo + markdown'
+        },
+      ]
     }
   },
   methods:{
-    getLinksData () {
-      let vm = this
-      vm.axios.get('../assets/links.json').then(res => {
-        vm.ajaxdata = res.data
-      })
-    }
+
   },
   created () {
-    this.getLinksData()
   }
 }
 </script>
@@ -62,17 +65,20 @@ export default {
   border: 1px solid red
 
 .list
+  width: 100%
   display: flex
   &__item
+    width: 31%
     &__img
-      width: 15rem
-      height: 10rem
+      max-width: 15rem
+      max-height: 10rem
 
 .scene
-  width: 20rem
+  width: 100%
   height: 15rem
   perspective: 60rem
   display: block
+  color: #fff
   border: 1px solid #808080
   .card
     width: 100%
@@ -83,14 +89,14 @@ export default {
     &:hover
       transform: rotateY(180deg)
     &__face
-      position: absolute
       height: 100%
       width: 100%
+      position: absolute
       backface-visibility: hidden
       &--front
-        background-color: red
+        background-color: $bg_dark
       &--back
-        background-color: blue
+        background-color: $bg_dark
         transform: rotateY(180deg)
     &__text
       position: absolute
