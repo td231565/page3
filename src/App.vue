@@ -2,16 +2,16 @@
   <div id="app">
     <navTop @jumpToHash="jumpToHash"/>
 
-    <h1 class="app__hello">Front-End is really Interesting</h1>
+    <!-- <h1 class="app__hello">Front-End is really Interesting</h1> -->
 
     <div class="sections">
-      <div id="intro">
+      <div id="intro" class="sections__item">
         <Intro />
       </div>
-      <div id="skills">
+      <div id="skills" class="sections__item">
         <Skills />
       </div>
-      <div id="links">
+      <div id="links" class="sections__item">
         <LinksList />
       </div>
     </div>
@@ -36,7 +36,7 @@ export default {
   methods: {
     jumpToHash (hash) {
       let top = document.getElementById(hash).offsetTop
-      window.scrollTo(0, top-150)
+      window.scrollTo(0, top-180)
     }
   }
 }
@@ -61,4 +61,7 @@ export default {
 .sections
   width: 80%
   margin: auto
+  &__item
+    height: calc(100vh - 150px)
+    margin: 7rem 0
 </style>

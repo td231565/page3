@@ -1,12 +1,9 @@
 <template>
   <div class="skills">
+    <h2>Skills Level</h2>
     <figure class="highcharts-figure">
       <div id="container"></div>
-      <p class="highcharts-description">
-        Chart with buttons to modify options, showing how options can be changed
-        on the fly. This flexibility allows for more dynamic charts.
-      </p>
-  </figure>
+    </figure>
   </div>
 </template>
 
@@ -61,7 +58,7 @@ export default {
           type: 'bar'
         },
         title: {
-          text: 'Skills Level'
+          text: ''
         },
         xAxis: {
           categories: vm.skillName
