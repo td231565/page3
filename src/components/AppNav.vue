@@ -4,14 +4,13 @@
 
     <div class="nav--top" :class="{ sticky: isScrollDown }" ref="nav">
       <ul class="nav--top__list">
-        <li class="nav--top__list__item" @click="jumpToHash('app')">Home</li> |
-        <li class="nav--top__list__item" @click="jumpToHash('intro')">About</li> |
+        <li class="nav--top__list__item" @click="jumpToHash('home')">Home</li> |
+        <li class="nav--top__list__item" @click="jumpToHash('about')">About</li> |
         <li class="nav--top__list__item" @click="jumpToHash('skills')">Skills</li> |
         <li class="nav--top__list__item" @click="jumpToHash('links')">Links</li> |
+        <li class="nav--top__list__item" @click="jumpToHash('contact')">Contact</li>
       </ul>
     </div>
-
-    <h1 class="hello">Front-End is really Interesting</h1>
   </div>
 </template>
 
