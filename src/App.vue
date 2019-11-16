@@ -12,7 +12,7 @@
         <Skills />
       </div>
       <div id="links" class="sections__item" ref="links">
-        <LinksList />
+        <Links />
       </div>
     </div>
 
@@ -23,7 +23,7 @@
 import navTop from './components/AppNav'
 import Intro from './components/AboutIntro'
 import Skills from './components/AboutSkills'
-import LinksList from './components/LinksList'
+import Links from './components/LinksList'
 import Hello from './components/Hello'
 
 export default {
@@ -32,7 +32,7 @@ export default {
     navTop,
     Intro,
     Skills,
-    LinksList,
+    Links,
     Hello
   },
   data () {

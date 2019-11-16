@@ -1,6 +1,7 @@
 <template>
   <div class="skills">
     <h2>Skills Level</h2>
+    
     <figure class="highcharts-figure">
       <div id="container"></div>
     </figure>

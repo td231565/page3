@@ -84,7 +84,6 @@ export default {
         padding-top: 100px
         justify-content: flex-start
         background-color: rgba(#000, 0.2)
-        &__item
-          font-weight: 700
-          color: #fff
+        font-weight: 700
+        color: #fff
 </style>

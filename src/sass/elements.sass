@@ -1,4 +1,15 @@
-.flex--center
+.flex
   display: flex
-  justify-content: center
   align-items: center
+  &--center
+    @extend .flex
+    justify-content: center
+  &--left
+    @extend .flex
+    justify-content: flex-start
+
+.absolute--center
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)

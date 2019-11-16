@@ -1,11 +1,12 @@
-const path = require('path')
-
 module.exports = {
   pluginOptions: {
     'style-resources-loader': {
-      'patterns': [
-        path.resolve(__dirname, 'src/sass/*.sass'),
-      ]
+      patterns: [
+        'D:\\Documents\\page3\\src\\sass\\variables.sass',
+        'D:\\Documents\\page3\\src\\sass\\base.sass',
+        'D:\\Documents\\page3\\src\\sass\\elements.sass'
+      ],
+      preProcessor: 'sass'
     }
   }
 }

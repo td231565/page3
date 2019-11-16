@@ -1,30 +1,29 @@
 <template>
-  <ul class="list">
-    <li class="list__item" v-for="link in links" :key="link.id">
-      <a :href="link.href" target="_blank" rel="noopener" class="scene">
-        <div class="card">
-          <div class="card__face card__face--front">
-            <img class="card__face__img" :src="link.src" :alt="link.alt" />
-            <h3 class="card__face__text">{{ link.name }}</h3>
-          </div>
-          <div class="card__face card__face--back">
-            <img class="card__face__img" :src="link.src" :alt="link.alt" />
-            <div class="card__face__text flex--center">
-              <h3>{{ link.name }}</h3>
-              <p>{{ link.description }}</p>
+  <div class="links">
+    <h2>Links</h2>
+    
+    <ul class="list">
+      <li class="list__item" v-for="link in links" :key="link.id">
+        <a :href="link.href" target="_blank" rel="noopener" class="scene">
+          <div class="card">
+            <div class="card__face card__face--front flex--center">
+              <img class="card__face__img" :src="link.src" :alt="link.alt" />
+              <div class="card__face__text flex--center">
+                <h3 class="card__face__text__content">{{ link.name }}</h3>
+              </div>
             </div>
-          </div>
+            <div class="card__face card__face--back flex--center">
+              <img class="card__face__img" :src="link.src" :alt="link.alt" />
+              <div class="card__face__text flex--center">
+                <p class="card__face__text__content" v-html="link.description"></p>
+              </div>
+            </div>
 
-          <!-- <div class="card__text card__text--front">
-            
           </div>
-          <div class="card__text card__text--back">
-            
-          </div> -->
-        </div>
-      </a>
-    </li>
-  </ul>
+        </a>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -38,19 +37,19 @@ export default {
       links: [
         {
           id: 1,
-          name: 'pm25',
+          name: 'PM 2.5 空氣品質觀測',
           href: 'https://td231565.github.io/page/pm25/pm25.html',
           alt: 'PM2.5 空氣品質觀測',
           src: imgPM25,
-          description: 'JS + SCSS'
+          description: '原生 JS<br />SCSS 樣式<br />AJAX 抓遠端資料'
         },
         {
           id: 2,
-          name: 'hexo',
+          name: 'Hexo Blog',
           href: 'https://td231565.github.io/tech',
           alt: 'Hexo 框架打造簡易部落格',
           src: imgHexo,
-          description: 'hexo + markdown'
+          description: 'hexo 框架<br />markdown 編輯文章'
         },
       ]
     }
@@ -69,21 +68,15 @@ export default {
   display: flex
   &__item
     width: 31%
-    &__img
-      max-width: 15rem
-      max-height: 10rem
+    margin: 10px
 
 .scene
   width: 100%
-  // height: 15rem
-  mix-height: 0
-  margin: 10px
-  padding: 10px
+  height: 170px
   perspective: 60rem
   display: block
   color: #fff
-  // border: 1px solid #808080
-  // background-color: rgba($bg_dark, 0.5)
+  border: 1px solid #808080
   .card
     width: 100%
     height: 100%
@@ -97,40 +90,30 @@ export default {
       width: 100%
       position: absolute
       backface-visibility: hidden
-      background-color: $bg_dark
       &__text
+        width: 100%
+        height: 100%
+        padding: 10px
         position: absolute
-        top: 10px
-        left: 50%
-        transform: translateX(-50%)
+        top: 0
+        left: 0
         color: #000
+        &__content
+          padding: 10px
+          text-align: left
+          background-color: rgba(#fff, 0.9)
       &__img
         width: 100%
+        max-width: 15rem
+        max-height: 10rem
+        padding: 10px
         display: block
       &--front
+        .card__face__text
+          padding: 0
       &--back
-        height: auto
+        // height: auto
         transform: rotateY(180deg)
         .card__face__text
-          width: 100%
-          height: 100%
           background-color: rgba(#000, 0.5)
-    // &__text
-    //   position: absolute
-    //   &--front
-    //     top: 50%
-    //     left: 50%
-    //     transform: translate(-50%,-50%)
-    //     &__header
-    //       position: absolute
-    //       top: 10px
-    //       left: 50%
-    //       transform: translate(-50%,0)
-    //     &__img
-    //       width: 100%
-    //   &--back
-    //     top: 0
-    //     left: 50%
-    //     transform: rotateY(180deg) translateX(50%)
-
 </style>
