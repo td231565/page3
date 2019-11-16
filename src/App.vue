@@ -80,8 +80,6 @@ export default {
 </script>
 
 <style lang="sass">
-@import './sass/_variables'
-@import './sass/_base'
 
 #home
   width: 100%

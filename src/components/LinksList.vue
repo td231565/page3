@@ -3,17 +3,24 @@
     <li class="list__item" v-for="link in links" :key="link.id">
       <a :href="link.href" target="_blank" rel="noopener" class="scene">
         <div class="card">
-          <div class="card__face card__face--front">FRONT</div>
-          <div class="card__face card__face--back">BACK</div>
+          <div class="card__face card__face--front">
+            <img class="card__face__img" :src="link.src" :alt="link.alt" />
+            <h3 class="card__face__text">{{ link.name }}</h3>
+          </div>
+          <div class="card__face card__face--back">
+            <img class="card__face__img" :src="link.src" :alt="link.alt" />
+            <div class="card__face__text flex--center">
+              <h3>{{ link.name }}</h3>
+              <p>{{ link.description }}</p>
+            </div>
+          </div>
 
-          <div class="card__text card__text--front">
-            <h3>{{ link.name }}</h3>
-            <img class="list__item__img" :src="link.src" :alt="link.alt" />
+          <!-- <div class="card__text card__text--front">
+            
           </div>
           <div class="card__text card__text--back">
-            <h3>{{ link.name }}</h3>
-            <p>{{ link.description }}</p>
-          </div>
+            
+          </div> -->
         </div>
       </a>
     </li>
@@ -68,12 +75,15 @@ export default {
 
 .scene
   width: 100%
-  height: 15rem
+  // height: 15rem
+  mix-height: 0
+  margin: 10px
+  padding: 10px
   perspective: 60rem
   display: block
   color: #fff
   // border: 1px solid #808080
-  background-color: rgba($bg_dark, 0.5)
+  // background-color: rgba($bg_dark, 0.5)
   .card
     width: 100%
     height: 100%
@@ -88,18 +98,39 @@ export default {
       position: absolute
       backface-visibility: hidden
       background-color: $bg_dark
+      &__text
+        position: absolute
+        top: 10px
+        left: 50%
+        transform: translateX(-50%)
+        color: #000
+      &__img
+        width: 100%
+        display: block
       &--front
       &--back
+        height: auto
         transform: rotateY(180deg)
-    &__text
-      position: absolute
-      &--front
-        top: 50%
-        left: 50%
-        transform: translate(-50%,-50%)
-      &--back
-        top: 0
-        left: 50%
-        transform: rotateY(180deg) translateX(50%)
+        .card__face__text
+          width: 100%
+          height: 100%
+          background-color: rgba(#000, 0.5)
+    // &__text
+    //   position: absolute
+    //   &--front
+    //     top: 50%
+    //     left: 50%
+    //     transform: translate(-50%,-50%)
+    //     &__header
+    //       position: absolute
+    //       top: 10px
+    //       left: 50%
+    //       transform: translate(-50%,0)
+    //     &__img
+    //       width: 100%
+    //   &--back
+    //     top: 0
+    //     left: 50%
+    //     transform: rotateY(180deg) translateX(50%)
 
 </style>
