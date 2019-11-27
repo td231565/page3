@@ -43,7 +43,7 @@ export default {
   methods: {
     scrollToSection (hash) {
       let top = (hash !== '') ? this.$refs[hash].offsetTop-180 : 0
-      console.log(top)
+      // console.log(top)
       window.scrollTo(0, top)
     },
     jumpToHash (hash) {
@@ -56,9 +56,9 @@ export default {
       let nowOffset = window.pageYOffset
       let sections = document.querySelectorAll('.sections__item')
       sections.forEach(section => {
-        console.log(section.offsetTop)
-        console.log(nowOffset)
-        console.log(section.offsetTop+section.offsetHeight)
+        // console.log(section.offsetTop)
+        // console.log(nowOffset)
+        // console.log(section.offsetTop+section.offsetHeight)
         if (section.offsetTop-200 < nowOffset && (section.offsetTop+section.offsetHeight-200) > nowOffset) {
           window.location.hash = section.id
         } else if (nowOffset < 600) {
@@ -68,10 +68,10 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$refs)
+    // console.log(this.$refs)
     let hash = window.location.hash
     hash = (hash === '') ? 'home' : hash.replace(/#/, '')
-    console.log(hash)
+    // console.log(hash)
     this.scrollToSection(hash)
 
     // window.addEventListener('scroll', this.changeUrlHashOnScroll, false)
@@ -80,6 +80,9 @@ export default {
 </script>
 
 <style lang="sass">
+@import './sass/variables'
+@import './sass/base'
+@import './sass/elements'
 
 #home
   width: 100%
