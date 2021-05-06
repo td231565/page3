@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "core-js": "^3.3.2",
-    "highcharts": "^7.2.1",
+    "highcharts": "^9.0.0",
     "sass-lint-vue": "^0.4.0",
     "sass-resources-loader": "^2.0.1",
     "vue": "^2.6.10",
